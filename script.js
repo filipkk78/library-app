@@ -93,7 +93,6 @@ function updateBookDisplay() {
 
 function clearBooks() {
     while(mainContent.lastElementChild) {
-        // const bookCard = document.querySelector(".book-card");
         mainContent.removeChild(mainContent.lastElementChild);
     } 
 }
