@@ -1,21 +1,24 @@
-const myLibrary = [
-    {title: "The Hobbit", author: "J.R.R. Tolkien", pages: "389", status: "Not read"},
-    {title: "The Great Gatsby", author: "Scott Fitzgerald", pages: "234", status: "Read"},
-    {title: "Ulysses", author: "James Joyce", pages: "132", status: "Read"},
-    {title: "Pan Tadeusz", author: "Adam Mickiewicz", pages: "567", status: "Not read"},
-    {title: "1984", author: "George Orwell", pages: "128", status: "Read"}
-];
+const myLibrary = [];
 
-function Book(title, author, pages, read) {
+class Book {
+    constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     if(read === true) {
-    this.status = "Read";
+        this.status = "Read";
     } else if(read === false) {
-    this.status = "Not read";
+        this.status = "Not read";
     }
+    myLibrary.push(this);
 }
+}
+
+const Book1 = new Book ("The Hobbit", "J.R.R. Tolkien", "389", false);
+const Book2 = new Book ("The Great Gatsby", "Scott Fitzgerald", "234", true);
+const Book3 = new Book ("Ulysses", "James Joyce", "132", true);
+const Book4 = new Book ("Pan Tadeusz", "Adam Mickiewicz", "567", false);
+const Book5 = new Book ("1984", "George Orwell", "128", true);
 
 function addBookToLibrary() {
     let title = document.querySelector("#bookTitle").value;
@@ -28,7 +31,6 @@ function addBookToLibrary() {
     read = false;
     }
     const book = new Book(title, author, pages, read);
-    myLibrary.push(book);
     document.querySelector("#bookTitle").value = '';
     document.querySelector("#bookAuthor").value = '';
     document.querySelector("#bookPages").value = '';
